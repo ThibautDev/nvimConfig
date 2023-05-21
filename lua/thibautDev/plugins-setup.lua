@@ -32,14 +32,23 @@ return packer.startup(function(use)
     --Package manager
     use("wbthomason/packer.nvim")
 
-    --Colorschemes
-    use ("ellisonleao/gruvbox.nvim")
-    use ('Mofiqul/vscode.nvim')
+    --Colorschemes and icons
+    use("ellisonleao/gruvbox.nvim")
+    use('Mofiqul/vscode.nvim')
+    use('nvim-tree/nvim-web-devicons')
+    use('nvim-lualine/lualine.nvim')
 
-    --File explorer
+    --Interface
     use("nvim-tree/nvim-tree.lua")
-    use("nvim-tree/nvim-web-devicons")
+    use("romgrk/barbar.nvim")
+    use("tribela/vim-transparent")
 
+    --Code formating helper
+    use("windwp/nvim-autopairs")
+    use("tpope/vim-surround")
+
+    -- git integration
+    use("lewis6991/gitsigns.nvim") 
 
     if packer_bootstrap then
         require("packer").sync()

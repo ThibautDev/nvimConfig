@@ -37,13 +37,13 @@ elseif colorsheme == "gruvbox" then
         invert_tabline = false,
         invert_intend_guides = false,
         inverse = true, 
-        contrast = "", -- can be "hard", "soft" or empty string
+        contrast = "hard", -- can be "hard", "soft" or empty string
         palette_overrides = {},
         overrides = {
             NvimTreeNormal = {bg = "#282828"}
         },
         dim_inactive = false,
-        transparent_mode = true,
+        transparent_mode = false,
     })
     vim.cmd("colorscheme gruvbox")
 end

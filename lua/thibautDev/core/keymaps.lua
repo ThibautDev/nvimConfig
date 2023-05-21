@@ -6,6 +6,9 @@ vim.g.mapleader = " " -- set leader key to space
 keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
+-- tabbing selection
+vim.api.nvim_set_keymap('v', '<Tab>', '>gv', {noremap = true})
+vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', {noremap = true})
 
 -- tab management
 keymap.set("n", "<leader>ta", ":tabnew<CR>") -- open new tab
