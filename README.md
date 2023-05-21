@@ -12,3 +12,5 @@ For Windows 7/10/11 :
 ```
 git clone https://github.com/thibautDev/nvimConfig $env:LOCALAPPDATA\nvim
 ```
+
+Some part of my config are stolen from [here](https://github.com/josean-dev/dev-environment-files/tree/main/.config/nvim)
