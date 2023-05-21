@@ -39,3 +39,14 @@ opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
+
+
+vim.cmd([[
+augroup hide_tilde_chars
+  autocmd!
+  autocmd BufWinEnter * setlocal fillchars+=eob:\ 
+  autocmd BufWinEnter * setlocal fillchars+=vert:\ 
+augroup END
+]]) 
+-- hide vertical bar between the side bar and the edire 
+-- hide the ~ at the end of the file
