@@ -26,7 +26,6 @@ if not status then
     return
 end
 
-
 return packer.startup(function(use)
 
     --Package manager
@@ -64,12 +63,15 @@ return packer.startup(function(use)
     use("saadparwaiz1/cmp_luasnip") -- for autocompletion
     use("rafamadriz/friendly-snippets") -- useful snippets
 
-    --LSP
-    use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-    }
+    -- managing & installing lsp servers, linters & formatters
+    use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+    use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+
+    -- configuring lsp servers
+    use("neovim/nvim-lspconfig") -- easily configure language servers
+    use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+    use({"glepnir/lspsaga.nvim", branch = "main", })
+    use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 
     if packer_bootstrap then
         require("packer").sync()
