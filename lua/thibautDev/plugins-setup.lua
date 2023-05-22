@@ -42,16 +42,27 @@ return packer.startup(function(use)
     use("nvim-tree/nvim-tree.lua")
     use("romgrk/barbar.nvim")
     use("tribela/vim-transparent")
-use {
-    'goolord/alpha-nvim',
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.dashboard'.config)
-    end
-}
+    use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+    use {
+        'goolord/alpha-nvim',
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        end
+    }
 
     --Code formating helper
     use("windwp/nvim-autopairs")
     use("tpope/vim-surround")
+
+    -- autocompletion
+    use("hrsh7th/nvim-cmp") -- completion plugin
+    use("hrsh7th/cmp-buffer") -- source for text in buffer
+    use("hrsh7th/cmp-path") -- source for file system paths
+
+    -- snippets
+    use("L3MON4D3/LuaSnip") -- snippet engine
+    use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+    use("rafamadriz/friendly-snippets") -- useful snippets
 
     --LSP
     use {
