@@ -9,7 +9,7 @@ require'barbar'.setup {
   animation = true,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
-  auto_hide = false,
+  auto_hide = true,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
   tabpages = true,
@@ -28,7 +28,7 @@ require'barbar'.setup {
   focus_on_close = 'left',
 
   -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-  hide = {extensions = true, inactive = true},
+  --hide = {extensions = true, inactive = true},
 
   -- Disable highlighting alternate buffers
   highlight_alternate = false,
@@ -44,7 +44,7 @@ require'barbar'.setup {
     -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
     buffer_index = false,
     buffer_number = false,
-    button = '',
+    button = '',
     -- Enables / disables diagnostic symbols
     diagnostics = {
       [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
@@ -110,6 +110,12 @@ require'barbar'.setup {
   sidebar_filetypes = {
     -- Use the default values: {event = 'BufWinLeave', text = nil}
     NvimTree = true,
+    -- Or, specify the text used for the offset:
+    undotree = {text = 'undotree'},
+    -- Or, specify the event which the sidebar executes when leaving:
+    ['neo-tree'] = {event = 'BufWipeout'},
+    -- Or, specify both
+    Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
   },
 
   -- New buffer letters are assigned in this order. This order is

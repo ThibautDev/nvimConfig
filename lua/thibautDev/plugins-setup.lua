@@ -42,13 +42,23 @@ return packer.startup(function(use)
     use("nvim-tree/nvim-tree.lua")
     use("romgrk/barbar.nvim")
     use("tribela/vim-transparent")
+use {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+}
 
     --Code formating helper
     use("windwp/nvim-autopairs")
     use("tpope/vim-surround")
 
-    -- git integration
-    use("lewis6991/gitsigns.nvim") 
+    --LSP
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
 
     if packer_bootstrap then
         require("packer").sync()
